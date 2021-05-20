@@ -2,7 +2,7 @@ import React, {useLayoutEffect} from "react";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {getFocusedRouteNameFromRoute} from "@react-navigation/native";
 import {Ionicons} from "@expo/vector-icons";
-import Movies from "../screens/Movies";
+import Movies from "../screens/Movies/MoviesContainer";
 import Tv from "../screens/Tv";
 import Search from "../screens/Search";
 import Favs from "../screens/Favs";
