@@ -3,7 +3,9 @@ import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import { TouchableOpacity } from "react-native";
 import Poster from "./Poster";
-import { trimText } from "../utils";
+import Votes from "./Votes";
+import { apiImage } from "../api";
+import { trimText, formatDate } from "../utils";
 
 const Container = styled.View`
   padding: 0px 30px;
@@ -14,7 +16,7 @@ const Container = styled.View`
 
 const Data = styled.View`
   align-items: flex-start;
-  width: 60%;
+  width: 65%;
   margin-left: 25px;
 `;
 
@@ -25,12 +27,14 @@ const Title = styled.Text`
 `;
 const ReleaseDate = styled.Text`
   color: white;
+  opacity: 0.8;
   font-size: 12px;
 `;
 
 const Overview = styled.Text`
   margin-top: 10px;
   color: white;
+  opacity: 0.8;
 `;
 
 const Horizontal = ({ id, title, poster, overview, releaseDate }) => (
@@ -39,8 +43,10 @@ const Horizontal = ({ id, title, poster, overview, releaseDate }) => (
             <Poster url={poster} />
             <Data>
                 <Title>{trimText(title, 30)}</Title>
-                {releaseDate ? <ReleaseDate>{releaseDate}</ReleaseDate> : null}
-                <Overview>{trimText(overview, 130)}</Overview>
+                {releaseDate ? (
+                    <ReleaseDate>{formatDate(releaseDate)}</ReleaseDate>
+                ) : null}
+                <Overview>{trimText(overview, 80)}</Overview>
             </Data>
         </Container>
     </TouchableOpacity>
