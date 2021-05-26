@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import { TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { trimText } from "../utils";
 import Poster from "./Poster";
 import Votes from "./Votes";
-import {useNavigation} from "@react-navigation/native";
 
 const Container = styled.View`
   align-items: center;
@@ -24,6 +24,7 @@ const Vertical = ({ id, poster, title, votes }) => {
         navigation.navigate("Detail", {
             id,
             title,
+            poster,
             votes
         });
     };
