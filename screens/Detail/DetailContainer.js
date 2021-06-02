@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import * as WebBrowser from "expo-web-browser";
 import DetailPresenter from "./DetailPresenter";
-import { movieApi, tvApi } from "../../api";
+import {movieApi, tvApi} from "../../api";
 
 export default ({
                     navigation,
                     route: {
-                        params: { isTv, id, title, backgroundImage, poster, votes, overview }
+                        params: {isTv, id, title, backgroundImage, poster, votes, overview}
                     }
                 }) => {
     const [detail, setDetail] = useState({
@@ -20,10 +20,10 @@ export default ({
             videos: {
                 results: []
             }
-
         }
     });
     const getData = async () => {
+        console.log(isTv);
         const [getDetail, getDetailError] = isTv
             ? await tvApi.show(id)
             : await movieApi.movie(id);
@@ -45,7 +45,7 @@ export default ({
         getData();
     }, [id]);
     React.useLayoutEffect(() => {
-        navigation.setOptions({ title });
+        navigation.setOptions({title});
     });
 
     const openBrowser = async url => {

@@ -149,7 +149,7 @@ export default ({ openBrowser, result, loading }) => (
                 {result.videos.results?.length > 0 ? (
                     <>
                         <DataName>Videos</DataName>
-                        {result.videos.results.map(video => (
+                        {result?.videos?.results?.map(video => (
                             <Link
                                 text={video.name}
                                 key={video.id}
