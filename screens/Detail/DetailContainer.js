@@ -23,7 +23,6 @@ export default ({
         }
     });
     const getData = async () => {
-        console.log(isTv);
         const [getDetail, getDetailError] = isTv
             ? await tvApi.show(id)
             : await movieApi.movie(id);
